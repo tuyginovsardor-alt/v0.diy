@@ -11,8 +11,9 @@ function textStream(text: string) {
 }
 
 async function groq(messages: Array<{ role: string; content: string }>) {
-  if (!process.env.GROQ_API_KEY) throw new Error("GROQ_API_KEY sozlanmagan. Settings orqali secret kiriting.");
-  const response = await fetch("https://api.groq.com/openai/v1/chat/completions", { method: "POST", headers: { Authorization: `Bearer ${process.env.GROQ_API_KEY}`, "Content-Type": "application/json" }, body: JSON.stringify({ model: process.env.GROQ_MODEL ?? "llama-3.3-70b-versatile", messages, temperature: 0.15, max_tokens: 1800 }) });
+  const apiKey = process.env.GROQ_API_KEY || process.env.GROQ_API_KEY_2;
+  if (!apiKey) throw new Error("Groq key topilmadi. .env.local ichida GROQ_API_KEY=gsk_... ko‘rinishida saqlang; process.env... ni qiymat sifatida yozmang.");
+  const response = await fetch("https://api.groq.com/openai/v1/chat/completions", { method: "POST", headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" }, body: JSON.stringify({ model: process.env.GROQ_MODEL ?? "llama-3.3-70b-versatile", messages, temperature: 0.15, max_tokens: 1800 }) });
   if (!response.ok) throw new Error(`Groq API xatosi: ${response.status}`);
   const data = await response.json() as { choices?: Array<{ message?: { content?: string } }> };
   return data.choices?.[0]?.message?.content ?? "Javob olinmadi.";

@@ -6,7 +6,7 @@ import { getWorkspaceRoot } from "@/lib/local-store";
 
 const execFileAsync = promisify(execFile);
 const MAX_OUTPUT = 12000;
-const ALLOWED = new Set(["pnpm", "npm", "yarn", "node", "npx", "git", "tsc"]);
+const ALLOWED = new Set(["pnpm", "npm", "yarn", "node", "npx", "python", "python3", "pip", "pip3", "git", "tsc"]);
 
 export async function resolveSafePath(relativePath: string) {
   const root = path.resolve(await getWorkspaceRoot());

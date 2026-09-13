@@ -49,7 +49,7 @@ export function AgentsClient() {
   }
 
   async function saveSecret() {
-    setNotice("Key qabul qilindi. Uni .env.local fayliga GROQ_API_KEY=... sifatida saqlang, keyin serverni restart qiling.");
+    setNotice("Bu panel secretni saqlamaydi. .env.local fayliga GROQ_API_KEY=gsk_... yozing (process.env... emas), keyin Next.js serverni restart qiling.");
     setSecret("");
   }
 

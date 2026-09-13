@@ -11,7 +11,7 @@ type State = {
   settings: { workspaceRoot: string; groqConfigured: boolean };
 };
 
-const initialState: State = { version: 1, projects: [], sessions: [], settings: { workspaceRoot: process.env.AGENT_WORKSPACE_ROOT ?? process.cwd(), groqConfigured: Boolean(process.env.GROQ_API_KEY) } };
+const initialState: State = { version: 1, projects: [], sessions: [], settings: { workspaceRoot: process.env.AGENT_WORKSPACE_ROOT ?? process.cwd(), groqConfigured: Boolean(process.env.GROQ_API_KEY || process.env.GROQ_API_KEY_2) } };
 
 async function ensureStore() {
   await mkdir(DATA_DIR, { recursive: true });
