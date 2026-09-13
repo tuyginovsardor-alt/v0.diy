@@ -32,6 +32,7 @@
     ]
   },
   "dependencies": {
+    "@ai-sdk/openai-compatible": "3.0.48",
     "@ai-sdk/react": "3.0.99",
     "@radix-ui/react-avatar": "1.1.11",
     "@radix-ui/react-collapsible": "1.1.12",
@@ -49,6 +50,7 @@
     "bcrypt-ts": "8.0.1",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
+    "cn": "0.3.0",
     "dotenv": "17.3.1",
     "drizzle-kit": "0.31.9",
     "drizzle-orm": "0.45.1",
